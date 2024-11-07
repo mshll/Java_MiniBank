@@ -2,14 +2,15 @@ package Bank;
 
 import java.util.Date;
 
-public class Transaction {
+// Employee payment
+public class Payment {
     private Date date;
-    private String type;
+    private String method;
     private double amount;
 
-    public Transaction(Date date, String type, double amount) {
+    public Payment(Date date, String type, double amount) {
         this.date = date;
-        this.type = type;
+        this.method = type;
         this.amount = amount;
     }
 
@@ -21,16 +22,12 @@ public class Transaction {
         this.date = date;
     }
 
-    public String getType() {
-        return type;
+    public String getMethod() {
+        return method;
     }
 
-    public void setType(String type) {
-        if (!type.equalsIgnoreCase("deposit") && !type.equalsIgnoreCase("withdrawal")) {
-            System.err.println("Invalid transaction type");
-            return;
-        }
-        this.type = type.toLowerCase();
+    public void setMethod(String method) {
+        this.method = method.toLowerCase();
     }
 
     public double getAmount() {
@@ -43,9 +40,9 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction{" +
+        return "Payment{" +
                 "date=" + date +
-                ", type='" + type + '\'' +
+                ", method='" + method + '\'' +
                 ", amount=" + amount +
                 '}';
     }

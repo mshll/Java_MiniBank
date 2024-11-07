@@ -39,7 +39,7 @@ public class BankAccount {
     }
 
     public void withdrawal(double amount) {
-        if (balance - amount < 0) {
+        if (balance < amount) {
             System.err.println("Not enough balance");
             return;
         }
@@ -62,7 +62,7 @@ public class BankAccount {
 
     public static String generateAccountNumber() {
         Random rand = new Random();
-        StringBuilder card = new StringBuilder("BE");
+        StringBuilder card = new StringBuilder();
         for (int i = 0; i < 16; i++)
         {
             int n = rand.nextInt(10);

@@ -45,6 +45,7 @@ public class User {
         System.out.println("Welcome, " + username);
         System.out.println("Your account number is " + account.getAccountNumber());
         System.out.println("Your account balance is " + account.getBalance());
-        System.out.println("Here is your most recent transactions:" + account.getTransactionHistory());
+        System.out.println("Here is your most recent transactions:");
+        account.displayTransactionHistory();
     }
 }
