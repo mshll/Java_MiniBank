@@ -9,6 +9,7 @@ public class Employee {
 
     private final String id;
     private String name;
+    private String position;
     private double hourly;
     private final List<Double> bonuses;
     private final List<Double> deductions;
@@ -16,10 +17,11 @@ public class Employee {
     private final List<Payment> payments;
     private final boolean isAdmin;
 
-    public Employee(String id, String name, double hourly, boolean admin) {
+    public Employee(String id, String name, double hourly, String position, boolean admin) {
         this.id = id;
         this.name = name;
         this.hourly = hourly;
+        this.position = position;
         this.isAdmin = admin;
         bonuses = new ArrayList<>();
         deductions = new ArrayList<>();
@@ -61,6 +63,18 @@ public class Employee {
 
     public boolean isAdmin() {
         return this.isAdmin;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position, Employee caller) {
+        if (!caller.isAdmin()) {
+            System.out.println("You do not have access privileges");
+            return;
+        }
+        this.position = position;
     }
 
     public List<Double> getBonuses() {
@@ -116,6 +130,7 @@ public class Employee {
     public void displayEmployeeDetails(){
         System.out.println("=========================================");
         System.out.println("Hello, " + name + " (ID: " + id + ")");
+        System.out.println("Your position is " + position);
         System.out.println("Your hourly rate is " + hourly);
         System.out.println("Your overtime hours are " + overtimeHours);
         System.out.println("You put in " + getOvertimeHours() + " overtime hours");

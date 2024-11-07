@@ -29,8 +29,8 @@ public class BankSingleton {
         return newUser;
     }
 
-    public Employee createEmployee(String id, String name, double salary, boolean admin) throws Exception {
-        Employee newEmployee = new Employee(id, name, salary, admin);
+    public Employee createEmployee(String id, String name, double hourly, String position, boolean admin) throws Exception {
+        Employee newEmployee = new Employee(id, name, hourly, position, admin);
         for (Employee employee : employees) {
             if (employee.getId().equals(id)) {
                 throw new Exception("Employee already exists");
